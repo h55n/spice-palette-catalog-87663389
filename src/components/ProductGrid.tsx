@@ -33,10 +33,17 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, isLoading = false }
         damping: 24,
         duration: 0.3
       }
+    },
+    exit: { 
+      opacity: 0,
+      y: -10,
+      transition: {
+        duration: 0.2
+      }
     }
   };
 
-  // Loading skeletons
+  // Loading skeletons with staggered animations
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -65,14 +72,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, isLoading = false }
     );
   }
 
-  // Empty state
+  // Empty state with elegant animation
   if (products.length === 0) {
     return (
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-white/60 backdrop-blur-sm rounded-2xl p-12 text-center border border-gray-100"
+        className="bg-white/60 backdrop-blur-sm rounded-2xl p-12 text-center border border-gray-100 shadow-sm"
       >
         <div className="flex flex-col items-center justify-center gap-4">
           <motion.div 
@@ -113,7 +120,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, isLoading = false }
     );
   }
 
-  // Normal product grid with animations
+  // Enhanced product grid with improved animations and layout
   return (
     <AnimatePresence mode="wait">
       <motion.div 
@@ -122,10 +129,16 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, isLoading = false }
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        exit={{ opacity: 0 }}
+        exit={{ opacity: 0, transition: { duration: 0.2 } }}
+        layout
       >
         {products.map((product) => (
-          <motion.div key={product.id} variants={itemVariants}>
+          <motion.div 
+            key={product.id} 
+            variants={itemVariants}
+            layout
+            className="flex"
+          >
             <ProductCard product={product} />
           </motion.div>
         ))}

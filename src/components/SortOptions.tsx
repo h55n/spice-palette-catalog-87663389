@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { SlidersHorizontal } from 'lucide-react';
 import {
   Select,
@@ -19,11 +20,16 @@ const SortOptions: React.FC<SortOptionsProps> = ({
   setSortOption 
 }) => {
   return (
-    <div className="flex items-center space-x-2 mb-6">
+    <motion.div 
+      className="flex items-center space-x-2 mb-6"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <SlidersHorizontal className="h-5 w-5" />
       <span className="font-medium mr-2">Sort by:</span>
       <Select value={sortOption} onValueChange={setSortOption}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[180px] border-spice-black/20">
           <SelectValue placeholder="Featured" />
         </SelectTrigger>
         <SelectContent>
@@ -34,7 +40,7 @@ const SortOptions: React.FC<SortOptionsProps> = ({
           <SelectItem value="bestselling">Bestselling</SelectItem>
         </SelectContent>
       </Select>
-    </div>
+    </motion.div>
   );
 };
 

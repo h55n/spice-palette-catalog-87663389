@@ -1,8 +1,10 @@
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
+import { cn } from "@/lib/utils";
 
 export interface Product {
   id: number;
@@ -46,68 +48,113 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div 
-      className={`product-card rounded-2xl overflow-hidden h-full flex flex-col`}
+    <motion.div 
+      className={cn(
+        "product-card rounded-2xl overflow-hidden h-full flex flex-col",
+        "transition-all duration-300 hover:shadow-md"
+      )}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div 
-        className={`p-4 relative flex-grow flex items-center justify-center ${product.backgroundColor} transition-all duration-500`}
+        className={`p-4 relative flex-grow flex items-center justify-center ${product.backgroundColor} transition-all duration-300`}
         style={{ minHeight: "260px" }}
       >
-        {/* Product image */}
-        <img 
+        {/* Product image with animation */}
+        <motion.img 
           src={product.image} 
           alt={product.name} 
-          className="h-48 w-auto object-contain transform transition-transform duration-500 hover:scale-110 z-10"
+          className="h-48 w-auto object-contain z-10"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10, duration: 0.2 }}
         />
 
-        {/* Badges */}
+        {/* Badges with animation */}
         <div className="absolute top-4 left-4 flex flex-col gap-2 z-20">
-          {product.isNew && (
-            <span className="badge-new">New</span>
-          )}
-          {product.isBestseller && (
-            <span className="badge-bestseller">Bestseller</span>
-          )}
-          {product.isSale && (
-            <span className="badge-sale">Sale</span>
-          )}
+          <AnimatePresence>
+            {product.isNew && (
+              <motion.span 
+                className="badge-new"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                New
+              </motion.span>
+            )}
+            {product.isBestseller && (
+              <motion.span 
+                className="badge-bestseller"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: 0.05 }}
+              >
+                Bestseller
+              </motion.span>
+            )}
+            {product.isSale && (
+              <motion.span 
+                className="badge-sale"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+              >
+                Sale
+              </motion.span>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Quick add overlay */}
-        {isHovered && (
-          <div className="absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm z-20 transition-opacity duration-300">
-            <div className="bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-2 mb-4">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  onClick={decrementQuantity}
-                  disabled={quantity <= 1}
-                  className="h-8 w-8"
-                >
-                  <Minus className="h-4 w-4" />
-                </Button>
-                <span className="font-medium text-lg w-8 text-center">{quantity}</span>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  onClick={incrementQuantity}
-                  className="h-8 w-8"
-                >
-                  <Plus className="h-4 w-4" />
-                </Button>
-              </div>
-              <Button 
-                onClick={handleAddToCart}
-                className="w-full bg-spice-black hover:bg-spice-black/90"
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div 
+              className="absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.div 
+                className="bg-white p-4 rounded-lg shadow-lg"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
-                <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-              </Button>
-            </div>
-          </div>
-        )}
+                <div className="flex items-center space-x-2 mb-4">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={decrementQuantity}
+                    disabled={quantity <= 1}
+                    className="h-8 w-8"
+                  >
+                    <Minus className="h-4 w-4" />
+                  </Button>
+                  <span className="font-medium text-lg w-8 text-center">{quantity}</span>
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={incrementQuantity}
+                    className="h-8 w-8"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+                <Button 
+                  onClick={handleAddToCart}
+                  className="w-full bg-spice-black hover:bg-spice-black/90"
+                >
+                  <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+                </Button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       
       {/* Product details */}
@@ -148,7 +195,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

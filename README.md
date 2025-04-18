@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/a924464b-1896-4c59-b633-caa1452deb9b
+# 🌟Catalogue Page
 
-## How can I edit this code?
+A modern, responsive web application built and designed by me using cutting-edge front-end technologies. The project is deployed using [Lovable](https://lovable.dev) for seamless hosting and deployment.
 
-There are several ways of editing your application.
+[🔗 Live Project](https://lovable.dev/projects/a924464b-1896-4c59-b633-caa1452deb9b)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a924464b-1896-4c59-b633-caa1452deb9b) and start prompting.
+## 📦 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built using:
 
-**Use your preferred IDE**
+- ⚡ [Vite](https://vitejs.dev/)
+- 🧠 [TypeScript](https://www.typescriptlang.org/)
+- ⚛️ [React](https://react.dev/)
+- 🎨 [Tailwind CSS](https://tailwindcss.com/)
+- 🧩 [shadcn/ui](https://ui.shadcn.com/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✏️ How to Edit the Project
 
-Follow these steps:
+You can continue developing this project using any of the following methods:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### 💻 Local Development (IDE)
+
+Clone the repository and run the project locally using your favorite code editor.
+
+#### Setup Instructions
+
+> Ensure [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) are installed. [nvm](https://github.com/nvm-sh/nvm) is recommended for managing Node versions.
+
+```bash
+# Clone the repo
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be running locally at `http://localhost:5173` (or your configured port).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### ✍️ Edit on GitHub
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Navigate to the desired file in the GitHub repo.
+- Click the pencil icon to edit.
+- Commit your changes — they'll be reflected on your live deployment after pushing.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+### 💡 Use GitHub Codespaces (Optional)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Click the green **Code** button on the repo page.
+- Go to the **Codespaces** tab.
+- Launch a new codespace and begin coding in a full dev environment.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/a924464b-1896-4c59-b633-caa1452deb9b) and click on Share -> Publish.
+## 🚀 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+This project is deployed via [Lovable](https://lovable.dev) for fast and reliable publishing. You can manage your deployment or republish updates easily from their dashboard.
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌐 Custom Domain Support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+You can connect a custom domain to your deployed app:
+
+- Navigate to your deployment dashboard.
+- Go to **Settings → Domains** and follow the prompts.
+
+📖 [Custom Domain Setup Guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+---
+
+## 🙌 Author
+
+Crafted with ❤️ by **me**. Built from scratch and deployed via Lovable.

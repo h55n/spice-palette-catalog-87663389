@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
@@ -11,12 +10,11 @@ import {
   Sun, 
   Snowflake, 
   Coffee, 
-  Flower2, 
+  CircleUser,
   Sparkles,
   Heart,
   Droplet,
   Utensils,
-  Pepper,
   Cherry,
   Soup
 } from 'lucide-react';
@@ -100,17 +98,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             transition={{ duration: 0.5 }}
           >
             <div className="absolute top-8 left-8 rotate-12">
-              <Pepper size={20} color="#FFF" strokeWidth={1} />
+              <Cherry size={20} color="#FFF" strokeWidth={1} />
             </div>
             <div className="absolute bottom-8 right-8 -rotate-12">
-              <Pepper size={20} color="#FFF" strokeWidth={1} />
+              <Cherry size={20} color="#FFF" strokeWidth={1} />
             </div>
           </motion.div>
         ),
         secondaryIcon: <Sun size={32} color="#FFF" strokeWidth={1.5} className="absolute top-6 right-6" />
       },
       "Exotic Blend": {
-        icon: <Flower2 size={64} color="#FFF" strokeWidth={1.5} />,
+        icon: <CircleUser size={64} color="#FFF" strokeWidth={1.5} />,
         bgPattern: (
           <motion.div 
             className="absolute inset-0 opacity-30"
@@ -175,10 +173,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             animate={{ opacity: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="absolute top-8 left-8 rotate-15">
+            <div className="absolute top-8 left-8">
               <Sparkles size={20} color="#FFF" strokeWidth={1} />
             </div>
-            <div className="absolute bottom-8 right-8 -rotate-15">
+            <div className="absolute bottom-8 right-8">
               <Sparkles size={20} color="#FFF" strokeWidth={1} />
             </div>
           </motion.div>

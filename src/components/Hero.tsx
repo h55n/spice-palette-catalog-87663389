@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Leaf as LeafIcon, CircleUser, Coffee as CoffeeIcon, Flame as FlameIcon, Heart as HeartIcon } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -213,10 +213,10 @@ const Hero = () => {
                                 i === 3 ? "bg-spice-yellow" : 
                                 "bg-spice-orange"
                               }`}>
-                                {i === 0 && <Leaf className="w-5 h-5 text-white" />}
-                                {i === 1 && <Flower2 className="w-5 h-5 text-white" />}
-                                {i === 2 && <Coffee className="w-5 h-5 text-white" />}
-                                {i === 3 && <Flame className="w-5 h-5 text-white" />}
+                                {i === 0 && <LeafIcon className="w-5 h-5 text-white" />}
+                                {i === 1 && <CircleUser className="w-5 h-5 text-white" />}
+                                {i === 2 && <CoffeeIcon className="w-5 h-5 text-white" />}
+                                {i === 3 && <FlameIcon className="w-5 h-5 text-white" />}
                                 {i === 4 && <Sparkles className="w-5 h-5 text-white" />}
                               </div>
                             </div>
@@ -242,7 +242,7 @@ const Hero = () => {
                             repeatType: "reverse" 
                           }}
                         >
-                          <Heart className="w-8 h-8 text-white" />
+                          <HeartIcon className="w-8 h-8 text-white" />
                         </motion.div>
                       </motion.div>
                     </div>
